@@ -1,0 +1,50 @@
+Navigating with xpath
+
+/html/body/div/h1  <-- This will navigate to a title on a webpage
+
+OR 
+
+//h1  <-- This will directly navigate to the title of the webpage
+
+OR
+
+//div/h1 <-- Only selects the h1 tag, which is immediate children of the div tag.
+
+//div//h1 <-- Selects all the h1 tags in under the div tag.
+
+The double // allows to select a tag, without 
+going to the parent tag. 
+
+=======================================
+
+Elements are selected by attributes using the @ symbol.
+
+Example: 
+
+//span[@class="title"]
+
+This will select any span tag where the class is "title".
+
+//span[@class="title"]/@id
+
+This will select a specific id attributes where the class is "title".
+
+Finally, 
+
+//span[@class="title"]/text  
+
+The /text means, we are asking for the inner text from the tag.
+
+====================================
+
+Article Crawling
+
+from scray.spider
+import 
+Crawlspider, and Rule
+
+also from scrapy.linkextractors import LinkExtractors 
+
+The rule object params
+
+rule = [Rule(LinkExtractor(allow='')), callback='parse-info', follow=True ]
